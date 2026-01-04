@@ -1,0 +1,9 @@
+pandas
+numpy
+dvc
+scikit-learn
+nltk
+ipykernel
+matplotlib
+wordcloud
+dvclive
