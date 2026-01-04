@@ -42,13 +42,13 @@ def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str)
 
 def main():
     try:
-        params = read_params_yaml(params_path='.\config\params.yaml')
+        params = read_params_yaml(params_path='config/params.yaml')
         test_size = params['data_ingestion']['test_size']
-        data_path = '.\model_experiments\spam.csv'
+        data_path = 'model_experiments/spam.csv'
         df = load_data(data_url=data_path)
         final_df = preprocess_data(df)
         train_data, test_data = train_test_split(final_df, test_size=test_size, random_state=2)
-        save_data(train_data, test_data, data_path='.\artifacts\data')
+        save_data(train_data, test_data, data_path='artifacts/data')
     except Exception as e:
         logger.error('Failed to complete the data ingestion process: %s', e)
         print(f"Error: {e}")
