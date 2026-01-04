@@ -57,7 +57,7 @@ def save_data(df: pd.DataFrame, file_path: str) -> None:
 
 def main():
     try:
-        params = read_params_yaml(params_path='config/params.yaml')
+        params = read_params_yaml(params_path='params.yaml')
         max_features = params['feature_engineering']['max_features']
         #max_features = 50
 

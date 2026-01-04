@@ -1,0 +1,5 @@
+# Ensure YAML files are always saved as UTF-8 without BOM
+*.yaml text eol=lf working-tree-encoding=UTF-8
+*.yml text eol=lf working-tree-encoding=UTF-8
+params.yaml text eol=lf working-tree-encoding=UTF-8
+dvc.yaml text eol=lf working-tree-encoding=UTF-8

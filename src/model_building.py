@@ -69,7 +69,7 @@ def save_model(model, file_path: str) -> None:
 
 def main():
     try:
-        params = read_params_yaml('config/params.yaml')['model_building']
+        params = read_params_yaml('params.yaml')['model_building']
         train_data = load_data('./artifacts/data/processed/train_tfidf.csv')
         X_train = train_data.iloc[:, :-1].values
         y_train = train_data.iloc[:, -1].values

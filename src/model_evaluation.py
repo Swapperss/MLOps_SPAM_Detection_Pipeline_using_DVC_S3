@@ -83,7 +83,7 @@ def save_metrics(metrics: dict, file_path: str) -> None:
 
 def main():
     try:
-        params = read_params_yaml(params_path='config/params.yaml')
+        params = read_params_yaml(params_path='params.yaml')
         clf = load_model('./artifacts/models/model.pkl')
         test_data = load_data('./artifacts/data/processed/test_tfidf.csv')
         

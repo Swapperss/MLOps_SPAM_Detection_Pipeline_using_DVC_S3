@@ -5,8 +5,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import pandas as pd
-from logger import get_logger
 import os
+from src.logger import get_logger
 from sklearn.model_selection import train_test_split
 from myutils.common_functions import *
 
@@ -42,7 +42,7 @@ def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str)
 
 def main():
     try:
-        params = read_params_yaml(params_path='config/params.yaml')
+        params = read_params_yaml(params_path='params.yaml')
         test_size = params['data_ingestion']['test_size']
         data_path = 'model_experiments/spam.csv'
         df = load_data(data_url=data_path)
@@ -50,8 +50,10 @@ def main():
         train_data, test_data = train_test_split(final_df, test_size=test_size, random_state=2)
         save_data(train_data, test_data, data_path='artifacts/data')
     except Exception as e:
+        import traceback
         logger.error('Failed to complete the data ingestion process: %s', e)
         print(f"Error: {e}")
+        traceback.print_exc()
 
 if __name__ == '__main__':
     main()
